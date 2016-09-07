@@ -1,13 +1,14 @@
 import angular from 'angular';
 import html from '../../components/<%=moduleName%>/<%=moduleName%>-example.html!text';
-import doc from 'uiux/components/<%=moduleName%>/API.md!'
+import doc from 'uiux/components/<%=moduleName%>/readme.md!'
 import js from '../../components/<%=moduleName%>/<%=moduleName%>-example.js!text';
 
 
 
 class <%=className%>SectionController{
-    /*@ngInject */
+    
     constructor() {
+        'ngInject'
         this.name = '<%= moduleName %>';
         this.src = '';
         this.html = html;

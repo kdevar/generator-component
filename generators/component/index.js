@@ -30,7 +30,7 @@ module.exports = yeoman.Base.extend({
         var moduleName = this.moduleName;
         var destinationPath = util.generateSrcDestinationPath(this.moduleName, this.options.parent);
         var examplesPath = util.generateExamplesDestinationPath();
-        
+
         this.fs.copyTpl(
             this.templatePath('_component.js'),
             this.destinationPath(destinationPath + '.js'),
@@ -47,39 +47,52 @@ module.exports = yeoman.Base.extend({
             { name: this.moduleName }
         );
 
+        fs.readFile("src/components/component.imports.js", 'utf8', function (err, data) {
+            var importStatement = "import " + moduleName + "Module from './" + moduleName + "/" + moduleName + "';\n",
+                exportStatement = "\nexport { " + moduleName + "Module };";
+            fs.writeFile("src/components/component.imports.js", importStatement + data + exportStatement, 'utf8', function (err) {
+                if (err) {
+                    console.log("unable to write new component in to example.imports", err);
+                    return;
+                }
+            });
+
+
+        });
+
         if (this.options.generateExample) {
             this.fs.copyTpl(
                 this.templatePath('example/_example.html'),
-                this.destinationPath(examplesPath + "/components/" +this.moduleName + "/" + this.moduleName +"-example.html"),
+                this.destinationPath(examplesPath + "/components/" + this.moduleName + "/" + this.moduleName + "-example.html"),
                 { moduleName: this.moduleName, tagName: this.moduleName.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase() }
             );
             this.fs.copyTpl(
                 this.templatePath('example/_example.js'),
-                this.destinationPath(examplesPath + "/components/" +this.moduleName + "/" + this.moduleName +"-example.js"),
+                this.destinationPath(examplesPath + "/components/" + this.moduleName + "/" + this.moduleName + "-example.js"),
                 { moduleName: this.moduleName }
             );
             this.fs.copyTpl(
                 this.templatePath('example/_example-section.js'),
-                this.destinationPath(examplesPath + "/sections/" +this.moduleName + "/" + this.moduleName +"-section.js"),
-                { moduleName: this.moduleName, tagName: this.moduleName.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()  }
+                this.destinationPath(examplesPath + "/sections/" + this.moduleName + "/" + this.moduleName + "-section.js"),
+                { moduleName: this.moduleName, tagName: this.moduleName.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase() }
             );
-             this.fs.copyTpl(
+            this.fs.copyTpl(
                 this.templatePath('example/_example-section.component.js'),
-                this.destinationPath(examplesPath + "/sections/" +this.moduleName + "/" + this.moduleName +"-section.component.js"),
+                this.destinationPath(examplesPath + "/sections/" + this.moduleName + "/" + this.moduleName + "-section.component.js"),
                 { moduleName: this.moduleName, tagName: this.moduleName.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase(), className: _.capitalize(this.moduleName) }
             );
-             fs.readFile("src/examples/example.imports.js", 'utf8', function (err, data) {
-                    var  importStatement = "import " + moduleName + "SectionModule from './sections/" + moduleName + "/" + moduleName + "-section';\n",
-                     exportStatement = "\nexport { " + moduleName + "SectionModule }";
-                    fs.writeFile("src/examples/example.imports.js", importStatement + data + exportStatement, 'utf8', function (err) {
-                        if (err) {
-                            console.log("unable to write new component in to example.imports", err);
-                            return;
-                       } 
-                    });
-                 
+            fs.readFile("src/examples/section.imports.js", 'utf8', function (err, data) {
+                var importStatement = "import " + moduleName + "SectionModule from './sections/" + moduleName + "/" + moduleName + "-section';\n",
+                    exportStatement = "\nexport { " + moduleName + "SectionModule }";
+                fs.writeFile("src/examples/section.imports.js", importStatement + data + exportStatement, 'utf8', function (err) {
+                    if (err) {
+                        console.log("unable to write new component in to example.imports", err);
+                        return;
+                    }
+                });
+            });
 
-             });
+
         }
     },
 
