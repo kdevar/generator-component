@@ -1,0 +1,49 @@
+{
+  "version": "0.1.0",
+  "scripts": {
+    "buildgallery": "gulp build-gallery",
+    "postinstall": "jspm config registries.gitlab.version 1.0 && jspm config registries.gitlab.baseurl https://gitlab.aamc.org && jspm config registries.gitlab.handler jspm-git && jspm install"
+  },
+  "jspm": {
+    "registry": "jspm",
+    "main": "src/components/components.js",
+    "directory":{
+      "lib": "src/components"
+    },
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.5.8",
+      "angular-markdown-directive": "npm:angular-markdown-directive@^0.3.1",
+      "angular-marked": "npm:angular-marked@^1.2.2",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.5.8",
+      "angular-ui-router": "github:angular-ui/angular-ui-router-bower@^0.3.1",
+      "css": "github:systemjs/plugin-css@^0.1.26",
+      "jquery": "npm:jquery@1.9.1",
+      "md": "github:guybedford/system-md@^0.1.0",
+      "ngaamc/aamc-ux-framework": "gitlab:ngaamc/aamc-ux-framework@master",      
+      "uiux/components": "gitlab:uiux/components@master",
+      "text": "github:systemjs/plugin-text@^0.0.8"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "del": "^2.2.2",    
+    "documentation": "^3.0.4",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-documentation": "^2.2.0",
+    "gulp-html-replace": "^1.6.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "jspm": "^0.16.42",
+    "jspm-git": "^0.4.5",
+    "sass-jspm-importer": "0.0.6",    
+    "vinyl-paths": "^2.1.0"
+  }
+}

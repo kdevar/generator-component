@@ -1,0 +1,21 @@
+.markdown.section{
+    h1{
+        padding-top: 15px;
+        border-bottom: solid 1px #efefef;        
+        //@extend h5;
+    }    
+}
+
+.section {
+    .title{
+        //@extend .text-muted;
+    }
+    .live-example{
+        //@extend .prettyprint;
+        background: #F5F6F7;
+        color: #5C707A;
+        padding: 25px;        
+    }
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

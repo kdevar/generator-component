@@ -1,0 +1,17 @@
+{
+  "name": "",
+  "description": "a collection of angular UI components built upon aamc-ux-framework",
+  "main": "lib/components.global.min.js",
+  "authors": [
+    
+  ],  
+  "keywords": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

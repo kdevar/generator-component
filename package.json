@@ -22,7 +22,8 @@
   "dependencies": {
     "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
-    "yosay": "^1.0.0"
+    "yosay": "^1.0.0",
+    "lodash": "^4.15.0"
   },
   "repository": "kdevar/generator-component",
   "devDependencies": {

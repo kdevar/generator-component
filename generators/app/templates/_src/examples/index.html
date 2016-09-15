@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>UIUX/Components</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <navbar>
+    <primary-nav>
+        <myapp-primary></myapp-primary>
+        
+    </primary-nav>
+  </navbar>
+  <example></example>
+
+
+
+  <script src="jspm_packages/system-polyfills.js"></script>
+  <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
+  <!-- build:js -->
+  <!-- bundled file goes here -->
+  <!-- endbuild -->
+  <script>    
+      System.import('src/examples/app').catch(console.error.bind(console));    
+  </script>
+
+</body>
+
+</html>

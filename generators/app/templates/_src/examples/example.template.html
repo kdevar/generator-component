@@ -1,0 +1,27 @@
+<div class="app container-fluid aamc-box-container">
+    <side-menu-layout>
+        <side-menu>
+            <h4 class="text-muted"><i class="fa fa-code"></i> Getting Started</h4>
+            <div class="example-menu-indented-nav">
+                <ul class="nav text-right">
+                    <li class="nav-item" ><a class="nav-link" ui-sref="install" ui-sref-active="active">Install</a></li>
+                    <li class="nav-item" ><a class="nav-link" ui-sref="contribute" ui-sref-active="active">Contribute</a></li>
+                </ul>
+            </div>
+
+            <hr/>
+
+            <h4 class="text-muted"><i class="fa fa-puzzle-piece"></i> UIUX Components</h4>
+            <div class="example-menu-indented-nav">
+                <ul class="nav text-right">
+                    <li class="nav-item" ng-repeat="component in $ctrl.items" >
+                        <a class="nav-link" ui-sref-active="active" ui-sref="{{component.name}}">{{component.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </side-menu>
+        <content>
+            <ui-view></ui-view>
+        </content>
+    </side-menu-layout>
+</div>
