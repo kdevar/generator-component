@@ -69,7 +69,7 @@ module.exports = yeoman.Base.extend({
             this.fs.copyTpl(
                 this.templatePath('example/_example.js'),
                 this.destinationPath(examplesPath + "/components/" + this.moduleName + "/" + this.moduleName + "-example.js"),
-                { moduleName: this.moduleName }
+                { moduleName: this.moduleName, package: this.config.get("package") }
             );
             this.fs.copyTpl(
                 this.templatePath('example/_example-section.js'),
@@ -79,7 +79,7 @@ module.exports = yeoman.Base.extend({
             this.fs.copyTpl(
                 this.templatePath('example/_example-section.component.js'),
                 this.destinationPath(examplesPath + "/sections/" + this.moduleName + "/" + this.moduleName + "-section.component.js"),
-                { moduleName: this.moduleName, tagName: this.moduleName.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase(), className: _.capitalize(this.moduleName) }
+                { moduleName: this.moduleName, tagName: this.moduleName.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase(), className: _.capitalize(this.moduleName), package: this.config.get("package") }
             );
             fs.readFile("src/examples/section.imports.js", 'utf8', function (err, data) {
                 var importStatement = "import " + moduleName + "SectionModule from './sections/" + moduleName + "/" + moduleName + "-section';\n",

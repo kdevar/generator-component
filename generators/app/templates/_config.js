@@ -1,5 +1,8 @@
 System.config({
     paths: {
-        "<%= path %>": "src/components"
+        "<%= path %>": "src/components/"
+    },
+    map: {
+        "<%= path %>":"<%= path %>"
     }
 });

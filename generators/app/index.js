@@ -28,9 +28,8 @@ module.exports = yeoman.Base.extend({
     }.bind(this));
   },
 
-  writing: function () {   
-    console.log(this.props);
-    this.directory("_src", "src");
+  writing: function () {       
+    this.directory("_src", "src", this.props);
     this.directory("_ssl", "ssl");
     this.copy("_Gulpfile.js", "Gulpfile.js");
     this.copy("_package.json", "package.json");    
@@ -39,6 +38,14 @@ module.exports = yeoman.Base.extend({
     this.copy("_install.md", "install.md");
     this.copy("_README.md", "README.md");
     this.copy("_.gitignore", ".gitignore");
+   
+
+    this.fs.copyTpl(
+      this.templatePath('_prettify.js'),
+      this.destinationPath("src/examples/assets/js/prettify.js"),
+      this.props,
+      { delimiter: "5433%%" }
+    );
 
     this.fs.copyTpl(
       this.templatePath('_components.js'),
@@ -51,6 +58,20 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('config.js'),
       this.props
     );
+
+    this.fs.copyTpl(
+      this.templatePath('_index.html'),
+      this.destinationPath('src/examples/index.html'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_example.template.html'),
+      this.destinationPath('src/examples/example.template.html'),
+      this.props
+    );
+
+    this.config.set("package", this.props.path);
 
     
 

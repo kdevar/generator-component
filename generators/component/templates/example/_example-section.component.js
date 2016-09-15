@@ -1,6 +1,6 @@
 import angular from 'angular';
 import html from '../../components/<%=moduleName%>/<%=moduleName%>-example.html!text';
-import doc from 'uiux/components/<%=moduleName%>/readme.md!'
+import doc from '<%= package %>/<%=moduleName%>/readme.md!'
 import js from '../../components/<%=moduleName%>/<%=moduleName%>-example.js!text';
 
 
