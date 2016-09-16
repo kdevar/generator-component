@@ -1,5 +1,5 @@
-# generator-component [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> creates angular components
+# generator-component 
+> creates angular component libraries
 
 ## Installation
 
