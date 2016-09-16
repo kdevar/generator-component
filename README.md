@@ -7,14 +7,26 @@ First, install [Yeoman](http://yeoman.io) and generator-component using [npm](ht
 
 ```bash
 npm install -g yo
-npm install -g generator-component
+npm install -g git+https://github.com/kdevar/generator-component.git
 ```
 
-Then generate your new project:
+Then generate your new component library:
 
 ```bash
 yo component
 ```
+
+Run your component library
+
+```bash
+gulp
+```
+
+To generate a new component
+```bash
+yo component:component componentName --generateExample
+```
+
 
 ## Getting To Know Yeoman
 
